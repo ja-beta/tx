@@ -1,0 +1,70 @@
+/* css reset */
+*, *:before, *:after { 
+    box-sizing: border-box; 
+}
+
+* {
+    margin: 0; 
+}
+
+img {
+    max-width: 100%; 
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+ul { 
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    color: inherit;
+
+}
+
+
+:root{
+
+}
+
+body{
+    background-color: rgb(229, 227, 220);
+}
+
+.main-wrapper{
+    margin: 80px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+.list-item{
+    font-size: 2rem;
+    line-height: 1.5;
+    color:rgb(85, 82, 71);
+    transition: all 0.3s;
+}
+
+.list-item:hover{
+    background-color: rgb(245, 88, 36);
+    color:antiquewhite;
+    letter-spacing: 0.5px;
+    padding: 0 40vw;
+    text-decoration: none;
+
+}
