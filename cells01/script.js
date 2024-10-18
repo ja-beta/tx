@@ -109,32 +109,38 @@ function createGrid(x, y) {
             get(cellRef).then((snapshot) => {
                 if (snapshot.exists()) {
                     let cellData = snapshot.val();
+                    console.log(`Cell ${div.id} data:`, cellData); // Debugging log
+
+                    // Add a count to the current color
+                    if (cellData.currentColor === "black") {
+                        cellData.blackCount += 1;
+                    } else {
+                        cellData.whiteCount += 1;
+                    }
+
+                    // Set the cell color based on the counts
                     if (cellData.blackCount > cellData.whiteCount) {
                         div.style.backgroundColor = "rgb(0, 0, 0)";
                         cellData.currentColor = "black";
-                    } else if (cellData.whiteCount > cellData.blackCount) {
+                    } else {
                         div.style.backgroundColor = "rgb(255, 255, 255)";
                         cellData.currentColor = "white";
-                    } else {
-                        const randomColor = Math.random() < 0.5 ? "black" : "white";
-                        div.style.backgroundColor = randomColor === "black" ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)";
-                        cellData.currentColor = randomColor;
-                        if (randomColor === "black") {
-                            cellData.blackCount += 1;
-                        } else {
-                            cellData.whiteCount += 1;
-                        }
                     }
+
                     set(cellRef, cellData);
                 } else {
                     const randomColor = Math.random() < 0.5 ? "black" : "white";
                     div.style.backgroundColor = randomColor === "black" ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)";
-                    set(cellRef, {
+                    const newCellData = {
                         blackCount: randomColor === "black" ? 1 : 0,
                         whiteCount: randomColor === "white" ? 1 : 0,
                         currentColor: randomColor
-                    });
+                    };
+                    console.log(`New cell ${div.id} data:`, newCellData); // Debugging log
+                    set(cellRef, newCellData);
                 }
+            }).catch((error) => {
+                console.error(`Error fetching data for cell ${div.id}:`, error); // Debugging log
             });
         }
     }
