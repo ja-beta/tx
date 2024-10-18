@@ -1,0 +1,118 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+body {
+  background-color: rgb(165, 165, 165);
+  height: 100%;
+  margin: 0px;
+}
+
+#firebaseui-auth-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffffb6;
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+#firebaseui-auth-wrapper.logged-in{
+  padding: 24px;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  backdrop-filter: blur(0);
+}
+
+#firebaseui-auth-container.logged-in{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+#profile {
+  align-items: right;
+  justify-content: right;
+}
+
+
+#signOut {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #000;  
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}
+
+.nameDiv {
+  font-size: 32px;
+  color: #01112a;
+  background-color: #FFF;
+
+  /* or */
+  line-height: 1.2em;
+  opacity: .7;
+}
+
+#grid-wrapper{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#grid-container{
+  display: grid;
+  width: fit-content;
+  border: 1px solid #000;
+}
+
+.cell{
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.sliders-wrapper{
+  position: fixed;
+  z-index: 10;
+  top: 80px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: end;
+
+}
+
+.slider-container{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
