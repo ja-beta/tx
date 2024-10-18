@@ -109,16 +109,14 @@ function createGrid(x, y) {
             get(cellRef).then((snapshot) => {
                 if (snapshot.exists()) {
                     let cellData = snapshot.val();
-                    console.log(`Cell ${div.id} data:`, cellData); // Debugging log
+                    console.log(`Cell ${div.id} data:`, cellData); 
 
-                    // Add a count to the current color
                     if (cellData.currentColor === "black") {
                         cellData.blackCount += 1;
                     } else {
                         cellData.whiteCount += 1;
                     }
 
-                    // Set the cell color based on the counts
                     if (cellData.blackCount > cellData.whiteCount) {
                         div.style.backgroundColor = "rgb(0, 0, 0)";
                         cellData.currentColor = "black";
@@ -136,11 +134,11 @@ function createGrid(x, y) {
                         whiteCount: randomColor === "white" ? 1 : 0,
                         currentColor: randomColor
                     };
-                    console.log(`New cell ${div.id} data:`, newCellData); // Debugging log
+                    console.log(`New cell ${div.id} data:`, newCellData); 
                     set(cellRef, newCellData);
                 }
             }).catch((error) => {
-                console.error(`Error fetching data for cell ${div.id}:`, error); // Debugging log
+                console.error(`Error fetching data for cell ${div.id}:`, error); 
             });
         }
     }
